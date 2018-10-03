@@ -1,6 +1,6 @@
 'use strict'
 
-function getAllClients() {
+function getAllClients(req, res) {
     console.log('getting all clients');
     res.send('getting all clients');
 }
@@ -11,18 +11,18 @@ function createClient(req, res) {
 }
 
 function getClient(req, res) {
-    console.log('getting client');
-    res.send('getting client');
+    console.log('getting client, id: ' + req.params.clientId);
+    res.send('getting client, id: ' + req.params.clientId);
 }
 
 function updateClient(req, res) {
-    console.log('updating client');
-    res.send('updating client');
+    console.log('updating client, id: ' + req.params.clientId);
+    res.send('updating client, id: ' + req.params.clientId);
 }
 
 function deleteClient(req, res) {
-    console.log('deleting client');
-    res.send('deleting client');
+    console.log('deleting client, id: ' + req.params.clientId);
+    res.send('deleting client, id: ' + req.params.clientId);
 }
 
 exports.GetAllClients = getAllClients;
