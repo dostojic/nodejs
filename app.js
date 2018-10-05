@@ -3,6 +3,7 @@
 var EventEmitter = require('events').EventEmitter;
 var util = require('util');
 var inherits = util.inherits;
+var fs = require('fs');
 
 var express = require('express');
 var app = express();
@@ -15,7 +16,10 @@ emitter.on('pageIsAccessed', function(arg1, arg2) {
 
 app.get('/', function(request, response) {
     emitter.emit('pageIsAccessed', { a: 'Dejan' }, { b: 'Ostojic' });
-    response.send('Hello World, this is Dejan');
+
+    //fs.createReadStream('./views/index.html').pipe(response);
+
+    response.send('Hello World, this is Dejan' + request.query.name);
 });
 
 var server = app.listen(8081, function() {
