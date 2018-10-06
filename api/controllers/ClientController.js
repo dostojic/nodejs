@@ -1,12 +1,11 @@
 'use strict'
 
-var ClientService = require('../services/ClientService').ClientService;
+var ClientService = require('../services/ClientService');
 
 function getAllClients(req, res) {
     console.log('getting all clients');
 
-    var clientService = new ClientService();
-    var clients = clientService.getAll();
+    var clients = ClientService.getAll();
 
     res.send(clients);
 }
@@ -19,8 +18,7 @@ function createClient(req, res) {
 function getClient(req, res) {
     console.log('getting client, id: ' + req.params.clientId);
 
-    var clientService = new ClientService();
-    var client = clientService.getById(req.params.clientId);
+    var client = ClientService.getById(req.params.clientId);
 
     res.send(client);
 }

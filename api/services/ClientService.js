@@ -1,12 +1,9 @@
 'use strict'
 
 var ClientRepository = require('../data/ClientRepository').ClientRepository;
+var clientRepository = new ClientRepository();
 
-function ClientService() {
-    this.clientRepository = new ClientRepository();
-}
-
-ClientService.prototype.getAll = function() {
+exports.getAll = function() {
     console.log('trying to load all clients from cache');
 
     //TODO: do some business logic
@@ -14,13 +11,11 @@ ClientService.prototype.getAll = function() {
     // - if cache is empty load it from database
     // - populate cache with a list of clients
 
-    return this.clientRepository.getAll();
+    return clientRepository.getAll();
 }
 
-ClientService.prototype.getById = function(clientId) {
+exports.getById = function(clientId) {
     console.log('trying to load a client by id: ' + clientId);
 
-    return this.clientRepository.getById(clientId);
+    return clientRepository.getById(clientId);
 }
-
-exports.ClientService = ClientService;
